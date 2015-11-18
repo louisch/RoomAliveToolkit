@@ -11,14 +11,8 @@ using System.Runtime.InteropServices;
 
 namespace RoomAliveToolkit
 {
-    public class ProjectionMappingSample : ApplicationContext
+    public class ProjectionMappingSample
     {
-        [STAThread]
-        static void Main(string[] args)
-        {
-            Application.Run(new ProjectionMappingSample(args));
-        }
-
         public ProjectionMappingSample(string[] args)
         {
             // load ensemble.xml
@@ -178,6 +172,10 @@ namespace RoomAliveToolkit
         bool liveDepthEnabled = Properties.Settings.Default.LiveDepthEnabled;
         bool fullScreenEnabled = Properties.Settings.Default.FullScreenEnabled;
         bool desktopDuplicationEnabled = Properties.Settings.Default.DesktopDuplicationEnabled;
+
+        public List<ProjectorForm> ProjectorForms {
+            get { return projectorForms; }
+        }
 
         void RenderLoop()
         {
